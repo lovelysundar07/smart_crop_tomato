@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+uploads/
+static/audio/
+model_training/*.h5
+model_training/*.pkl
+soil_moisture_dataset.csv

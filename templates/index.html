@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}" data-lang="{{ current_lang }}">
+<head>
+    <link rel="icon" type="image/png"
+      href="{{ url_for('static', filename='images/tomato-favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tomato Crop Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <span class="leaf l1">🌿</span><span class="leaf l2">🍃</span>
+    <span class="leaf l3">🌱</span><span class="leaf l4">🍃</span>
+    <nav class="navbar">
+        <div class="brand"><span class="leaf-icon">🍅</span> Smart Tomato Crop Advisor</div>
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">{{ t('lang_toggle') }}</button>
+    </nav>
+
+<section class="hero">
+    <h1>🍅 Smart Tomato Crop Advisor</h1>
+    <p>{{ t('home_tagline') }}</p>
+</section>
+<section class="features">
+    <a href="/disease-detector" class="feature-card">
+        <span class="icon">📷</span>
+        <h3>{{ t('nav_disease') }}</h3>
+        <p>{{ t('upload_leaf') }}</p>
+    </a>
+    <a href="/soil-moisture" class="feature-card">
+        <span class="icon">💧</span>
+        <h3>{{ t('nav_soil') }}</h3>
+        <p>{{ t('soil_desc') }}</p>
+    </a>
+    <a href="/weather-alerts" class="feature-card">
+        <span class="icon">🌦️</span>
+        <h3>{{ t('nav_weather') }}</h3>
+        <p>{{ t('weather_desc') }}</p>
+    </a>
+</section>
+<p class="footer-note">{{ t('footer_note') }}</p>
+
+{% include "partials/chatbot.html" %}
+
+<script src="{{ url_for("static", filename="js/lang.js") }}"></script>
+<script src="{{ url_for("static", filename="js/chatbot.js") }}"></script>
+</body>
+</html>

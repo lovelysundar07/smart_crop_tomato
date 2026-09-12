@@ -1,0 +1,28 @@
+<div id="chatbot-root">
+    <button id="chatbot-toggle" aria-label="Open farmer assistant chat">
+        <span class="chatbot-toggle-icon">💬</span>
+    </button>
+
+    <div id="chatbot-panel" class="chatbot-hidden"
+         data-title="{{ t('chatbot_title') }}"
+         data-greeting="{{ t('chatbot_greeting') }}"
+         data-placeholder="{{ t('chatbot_placeholder') }}"
+         data-send="{{ t('chatbot_send') }}"
+         data-lang-btn="{{ t('chatbot_lang_btn') }}"
+         data-typing="{{ t('chatbot_typing') }}"
+         data-current-lang="{{ current_lang }}">
+        <div class="chatbot-header">
+            <span class="chatbot-title">🤖 {{ t('chatbot_title') }}</span>
+            <div class="chatbot-header-actions">
+                <button id="chatbot-lang-toggle" class="chatbot-lang-btn">{{ t('chatbot_lang_btn') }}</button>
+                <button id="chatbot-close" aria-label="Close chat">✕</button>
+            </div>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div id="chatbot-typing" class="chatbot-typing-indicator" style="display:none;">{{ t('chatbot_typing') }}</div>
+        <form id="chatbot-form" class="chatbot-form">
+            <input type="text" id="chatbot-input" placeholder="{{ t('chatbot_placeholder') }}" autocomplete="off">
+            <button type="submit" id="chatbot-send-btn">{{ t('chatbot_send') }}</button>
+        </form>
+    </div>
+</div>

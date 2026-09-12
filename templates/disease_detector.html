@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}" data-lang="{{ current_lang }}">
+<head>
+    <link rel="icon" type="image/png"
+      href="{{ url_for('static', filename='images/tomato-favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection - Smart Tomato Crop Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <span class="leaf l1">🌿</span><span class="leaf l2">🍃</span>
+    <span class="leaf l3">🌱</span><span class="leaf l4">🍃</span>
+    <nav class="navbar">
+        <div class="brand"><span class="leaf-icon">🍅</span> Smart Tomato Crop Advisor</div>
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">{{ t('lang_toggle') }}</button>
+    </nav>
+
+<div class="page-container">
+    <h2>📷 {{ t('nav_disease') }}</h2>
+    {% if not model_ready %}
+    <p style="color:#ff9aaa;background:rgba(255,107,129,.07);padding:12px;border-radius:12px;">
+        ⚠️ Model not trained yet. See model_training/train_disease_model.py.
+    </p>
+    {% endif %}
+    <div class="form-group">
+        <label for="leaf_image">{{ t('upload_leaf') }}</label>
+        <input type="file" id="leaf_image" accept="image/*" capture="environment">
+        <img id="leaf-preview" alt="preview">
+    </div>
+    <button class="btn-primary" id="analyze-btn">{{ t('analyze_btn') }}</button>
+    <div class="spinner" id="spinner">🔎 Analyzing...</div>
+    <div class="result-box" id="result-box" data-confidence-label="{{ t('confidence') }}"></div>
+</div>
+
+{% include "partials/chatbot.html" %}
+
+<script src="{{ url_for("static", filename="js/lang.js") }}"></script>
+<script src="{{ url_for("static", filename="js/disease.js") }}"></script>
+<script src="{{ url_for("static", filename="js/chatbot.js") }}"></script>
+</body>
+</html>
